@@ -1,0 +1,27 @@
+[build-system]
+backend-path = ["."]
+build-backend = "_own_version_helper"  # XXX do i really need this?
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "setuptools_ocrd"
+version = "0.0.1"
+authors = [
+    {name = "Mike Gerber", email = "mike.gerber@sbb.spk-berlin.de"},
+]
+description = "Manage your package version through ocrd-tool.json"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["ocr-d", "setuptools"]
+license = {text = "Apache-2"}
+# XXX license string correct?
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.entry-points."setuptools.finalize_distribution_options"]
+setuptools_ocrd = "setuptools_ocrd._integration.setuptools:infer_version"
