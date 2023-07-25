@@ -1,11 +1,9 @@
 [build-system]
-backend-path = ["."]
-build-backend = "_own_version_helper"  # XXX do i really need this?
 requires = ["setuptools", "wheel"]
 
 [project]
 name = "setuptools_ocrd"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
     {name = "Mike Gerber", email = "mike.gerber@sbb.spk-berlin.de"},
 ]
