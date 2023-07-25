@@ -6,7 +6,8 @@ To test, build a local wheel and serve it over HTTP, to pip can install it:
 sh serve-local-wheel.sh
 ```
 
-In another terminal, try to install your package using `setuptools_ocrd` (in the build requires):
+In another terminal, try to install your package using `setuptools_ocrd` (by adding it to
+`build-system.requires`):
 
 ```
 cd ~/devel/another_project
