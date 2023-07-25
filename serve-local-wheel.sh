@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-TMP_REPO=`mktemp -d`
+TMP_REPO=`mktemp -d /tmp/setuptools-ocrd-wheel-build-XXXXX`
 
 mkdir -p $TMP_REPO/setuptools-ocrd
 pip wheel --wheel-dir $TMP_REPO/setuptools-ocrd .
