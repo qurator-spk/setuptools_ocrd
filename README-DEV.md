@@ -19,3 +19,12 @@ pip install --extra-index-url http://127.0.0.1:28486/ .
 `setuptools_ocrd` hooks into setuptools by setting the `setuptools.finalize_distribution_options`
 entry-point. This causes setuptools to call us and, if applicable, retrieve a version from
 `ocrd-tool.json`.
+
+
+## Releasing
+* Update the version in `pyproject.toml`
+  * Yes, this is in `pyproject.toml`, we are not a OCR-D tool
+* `git add` the `pyproject.toml` and `git commit -m 'v<version>'`
+* `git tag -m 'v<version>' 'v<version>'`
+* `git push; git push --tags`
+* Do a release on GitHub
