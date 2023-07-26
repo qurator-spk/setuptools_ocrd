@@ -12,3 +12,6 @@ requires = ["setuptools>=61.0.0", "wheel", "setuptools-ocrd"]
 # ... any other options ...
 dynamic = ["version"]
 ```
+
+## Developer information
+*Please refer to [README-DEV.md](README-DEV.md).*
