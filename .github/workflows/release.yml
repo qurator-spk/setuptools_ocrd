@@ -6,10 +6,26 @@ on:
       - "v*.*.*"
 
 jobs:
-  build:
+  github-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Release
+      - name: Create release on GitHub
         uses: softprops/action-gh-release@v1
+      - name: Upload release to PyPI
+
+  pypi-publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/setuptools-ocrd
+    permissions:
+      id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build package
+        run: python3 -m pip install --upgrade build && python3 -m build
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
