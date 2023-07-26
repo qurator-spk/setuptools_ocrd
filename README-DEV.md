@@ -28,3 +28,11 @@ entry-point. This causes setuptools to call us and, if applicable, retrieve a ve
 * `git tag -m 'v<version>' 'v<version>'`
 * `git push; git push --tags`
 * Do a release on GitHub
+
+### Uploading to PyPI
+* `rm -rf dist/` or backup if `dist/` exists already
+* `python3 -m build`
+  * Note that this does not require building in a virtualenv anymore, as
+    [build](https://pypi.org/project/build/) uses an isolated virtualenv itself.
+* `twine upload dist/setuptools_ocrd-<version>*`
+* Consider cleaning up: `rm -rf dist/* build/*`
