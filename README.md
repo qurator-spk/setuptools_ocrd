@@ -1,9 +1,6 @@
 # setuptools_ocrd
 
-Manage your package version through `ocrd-tool.json`.
-
-⚠ This is not on PyPI yet, so this will only work for testing, using the instructions in
-`README-DEV.md` ⚠
+Manage your Python package version through `ocrd-tool.json`.
 
 To use this, set the `version` field in `ocrd-tool.json` and use this in your `pyproject.toml`:
 
