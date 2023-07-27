@@ -1,8 +1,9 @@
 import os.path
 import json
 
+
 def _get_version():
-    OCRD_TOOL_JSON="ocrd-tool.json"
+    OCRD_TOOL_JSON = "ocrd-tool.json"
     if not os.path.exists(OCRD_TOOL_JSON):
         return None
 
