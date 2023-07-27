@@ -1,6 +1,8 @@
 import logging
 import warnings
+
 import setuptools
+
 from setuptools_ocrd import _get_version
 
 log = logging.getLogger(__name__)
