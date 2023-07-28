@@ -26,3 +26,8 @@ dependencies = {file = ["requirements.txt"]}
 
 [project.entry-points."setuptools.finalize_distribution_options"]
 setuptools_ocrd = "setuptools_ocrd._integration.setuptools:get_ocrd_tool_version"
+
+
+[tool.ruff]
+select = ["E", "F", "I"]
+ignore = []
