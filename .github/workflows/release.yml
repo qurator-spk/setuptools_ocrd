@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Check git tag vs package version
+        run: .github/workflows/release-check-version-tag
       - name: Build package
         run: python3 -m pip install --upgrade build && python3 -m build
       - name: Upload dist
