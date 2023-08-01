@@ -32,6 +32,8 @@ jobs:
           path: dist/
       - name: Create release on GitHub
         uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
 
   pypi-publish:
     needs: build
