@@ -17,8 +17,6 @@ _warn_on_old_setuptools()
 
 
 def get_ocrd_tool_version(dist):
-    log.debug("get_ocrd_tool_version: %r", vars(dist.metadata))
-
     if dist.metadata.version is not None:
         return
 
