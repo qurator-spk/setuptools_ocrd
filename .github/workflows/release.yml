@@ -5,9 +5,52 @@ on:
     tags:
       - "v*.*.*"
 
+env:
+  PYPI_URL: https://pypi.org/p/setuptools-ocrd
+
 jobs:
-  release:
-    uses: qurator-spk/setuptools_ocrd/.github/workflows/release-github+pypi.yml@master
-    secrets: inherit
-    with:
-      pypi-url: https://pypi.org/p/setuptools-ocrd
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Check git tag vs package version
+        run: python3 -m pip install --upgrade setuptools && .github/workflows/release-check-version-tag
+      - name: Build package
+        run: python3 -m pip install --upgrade build && python3 -m build
+      - name: Upload dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist/
+
+  github-release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download dist
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist/
+      - name: Create release on GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
+
+  pypi-publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: $PYPI_URL
+    permissions:
+      id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
+    steps:
+      - name: Download dist
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist/
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
