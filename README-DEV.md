@@ -30,3 +30,10 @@ entry-point. This causes setuptools to call us and, if applicable, retrieve a ve
 * `git push; git push --tags` (or `git push --follow-tags`)
 
 The GitHub Action (`.github/workflows/release.yml`) creates a release on GitHub and uploads to PyPI.
+
+## How to use pre-commit
+
+This project optionally uses [pre-commit](https://pre-commit.com) to check commits. To use it:
+
+- Install pre-commit, e.g. `pip install -r $(requirements-dev.txt)`
+- Install the repo-local git hooks: `pre-commit install`
