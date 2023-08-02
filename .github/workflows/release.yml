@@ -8,5 +8,6 @@ on:
 jobs:
   release:
     uses: qurator-spk/setuptools_ocrd/.github/workflows/release-github+pypi.yml@master
+    secrets: inherit
     with:
       pypi-url: https://pypi.org/p/setuptools-ocrd
