@@ -18,6 +18,8 @@ jobs:
         run: python3 -m pip install --upgrade setuptools && .github/workflows/release-check-version-tag
       - name: Build package
         run: python3 -m pip install --upgrade build && python3 -m build
+      - name: Test
+        run: python3 -m pip install -r requirements-dev.txt && pytest
       - name: Upload dist
         uses: actions/upload-artifact@v3
         with:
