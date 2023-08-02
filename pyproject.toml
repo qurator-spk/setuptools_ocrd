@@ -1,6 +1,7 @@
 [build-system]
 requires = ["setuptools", "wheel"]
 
+
 [project]
 name = "setuptools_ocrd"
 version = "0.0.16"
@@ -19,7 +20,13 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Topic :: Software Development :: Build Tools",
 ]
+
 dynamic = ["dependencies", "optional-dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/qurator-spk/setuptools_ocrd"
+Repository = "https://github.com/qurator-spk/setuptools_ocrd.git"
+
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
