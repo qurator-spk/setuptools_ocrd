@@ -22,17 +22,11 @@ entry-point. This causes setuptools to call us and, if applicable, retrieve a ve
 
 
 ## Releasing
+
 * Update the version in `pyproject.toml`
   * Yes, this is in `pyproject.toml`, we are not a OCR-D tool
 * `git add` the `pyproject.toml` and `git commit -m 'v<version>'`
 * `git tag -m 'v<version>' 'v<version>'`
-* `git push; git push --tags`
-* Do a release on GitHub
+* `git push; git push --tags` (or `git push --follow-tags`)
 
-### Uploading to PyPI
-* `rm -rf dist/` or backup if `dist/` exists already
-* `python3 -m build`
-  * Note that this does not require building in a virtualenv anymore, as
-    [build](https://pypi.org/project/build/) uses an isolated virtualenv itself.
-* `twine upload dist/setuptools_ocrd-<version>*`
-* Consider cleaning up: `rm -rf dist/* build/*`
+The GitHub Action (`.github/workflows/release.yml`) creates a release on GitHub and uploads to PyPI.
