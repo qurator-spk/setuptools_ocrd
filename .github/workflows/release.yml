@@ -7,8 +7,6 @@ on:
 
 jobs:
   release:
-    environment:
-      name: pypi
     uses: qurator-spk/setuptools_ocrd/.github/workflows/release-github+pypi.yml@master
     with:
       pypi-url: https://pypi.org/p/setuptools-ocrd
