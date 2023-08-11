@@ -4,7 +4,7 @@ requires = ["setuptools", "wheel"]
 
 [project]
 name = "setuptools_ocrd"
-version = "0.0.17"
+version = "0.0.18"
 authors = [
     {name = "Mike Gerber", email = "mike.gerber@sbb.spk-berlin.de"},
 ]
@@ -35,6 +35,8 @@ optional-dependencies.dev = {file = ["requirements-dev.txt"]}
 [project.entry-points."setuptools.finalize_distribution_options"]
 setuptools_ocrd = "setuptools_ocrd._integration.setuptools:get_ocrd_tool_version"
 
+[project.entry-points."setuptools.file_finders"]
+setuptools_ocrd = "setuptools_ocrd._integration.setuptools:file_finder_ocrd_tool"
 
 [tool.ruff]
 select = ["E", "F", "I"]

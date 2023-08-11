@@ -1,4 +1,5 @@
 import logging
+import os
 import warnings
 
 import setuptools
@@ -24,3 +25,16 @@ def get_ocrd_tool_version(dist):
         return
 
     dist.metadata.version = _get_version()
+
+
+def file_finder_ocrd_tool(dirname):
+    """Find ocrd-tool.json (to be included by setuptools)"""
+
+    # ocrd-tool.json is a symlink to somepath/ocrd-tool.json, find it and resolve if
+    # necessary.
+    name = os.path.join(dirname, "ocrd-tool.json")
+
+    if os.path.lexists(name):
+        yield name
+        # resolve symlink
+        yield os.path.relpath(os.path.realpath(name), start=dirname)
