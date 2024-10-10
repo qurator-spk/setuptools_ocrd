@@ -1,13 +1,12 @@
 ## Testing
 
-To test, build a local wheel and serve it over HTTP, to pip can install it:
+Testing setuptools_ocrd properly is somewhat difficult as it must be available to pip during the build process. So to test a new version, build a local wheel and serve it over HTTP, so pip can install it:
 
 ```
 sh serve-local-wheel.sh
 ```
 
-In another terminal, try to install (or build) your package using `setuptools_ocrd` (by adding it to
-`build-system.requires`):
+In another terminal, try to install (or build) your package using `setuptools_ocrd` (configured in your project's `build-system.requires`):
 
 ```
 cd ~/devel/another_project
@@ -22,6 +21,9 @@ e.g.:
 ```
 Successfully built pyproject_demo-1.2.3.tar.gz and pyproject_demo-1.2.3-py3-none-any.whl
 ```
+
+To troubleshoot, when the wheel has the wrong version (0.0.0), inspect the sdist tar if it has `ocrd-tool.json` (including any symlinkery) in the top directory and maybe try to build from the sdist to debug.
+
 
 ## How does it work?
 
