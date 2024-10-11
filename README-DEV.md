@@ -12,9 +12,9 @@ This should build an sdist tar and a wheel. Check that _both_ have the correct v
 uses the sdist to build the wheel and `setuptools_ocrd` must make sure that `ocrd-tool.json` is
 included in there as well.
 
-e.g.:
+If using the test project (in `test_project/`), this should give:
 ```
-Successfully built pyproject_demo-1.2.3.tar.gz and pyproject_demo-1.2.3-py3-none-any.whl
+Successfully built test_project-1.2.3.tar.gz and test_project-1.2.3-py3-none-any.whl
 ```
 
 To troubleshoot when the wheel has the wrong version (0.0.0), inspect the sdist tar if it has
