@@ -28,6 +28,10 @@ Homepage = "https://github.com/qurator-spk/setuptools_ocrd"
 Repository = "https://github.com/qurator-spk/setuptools_ocrd.git"
 
 
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["setuptools_ocrd"]
+
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 optional-dependencies.dev = {file = ["requirements-dev.txt"]}
